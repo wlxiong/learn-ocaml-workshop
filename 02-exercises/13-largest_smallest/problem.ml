@@ -19,8 +19,8 @@ let rec smallest xs =
   | x :: ys -> Float.min x (smallest ys)
 
 (* Let's rewrite them using every: *)
-let simpler_largest  xs = every (failwith "For you to implement") xs
-let simpler_smallest xs = every (failwith "For you to implement") xs
+let simpler_largest  xs = every Float.neg_infinity Float.max xs
+let simpler_smallest xs = every Float.infinity Float.min xs
 
 let%test "Testing simpler_smallest..." =
   Float.(=) Float.infinity (simpler_smallest [])

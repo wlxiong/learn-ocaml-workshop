@@ -17,7 +17,10 @@ let () =
   Stdio.printf "(5^2)/2 = %i" halved
 
 (* Try to write [average] by reusing [add] and [half] *)
-let average x y = failwith "For you to implement"
+let average x y =
+  let sum = add x y in
+  let avg = half sum in
+  avg
 
 let%test "Testing average..."  =
   Int.(=) 5 (average 5 5)
